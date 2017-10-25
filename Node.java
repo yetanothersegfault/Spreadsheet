@@ -27,6 +27,11 @@ public class Node
 		
 		right = null;
 		down = null;
-		
+	}
+	
+	public void setDouble(double num)
+	{
+		val.setdVal(num);
+		val.setTag(Tag.DBL);
 	}
 }

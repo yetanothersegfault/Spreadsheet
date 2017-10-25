@@ -4,11 +4,11 @@ import java.util.Scanner;
 
 public class Spreadsheet 
 {
+	static Scanner keyboard = new Scanner(System.in);
 
 	public static void main(String[] args) 
 	{
 		
-		Scanner keyboard = new Scanner(System.in);
 		Grid grid = new Grid();
 		
 		boolean cont = true;
@@ -23,63 +23,83 @@ public class Spreadsheet
 			switch(input.toLowerCase())
 			{
 				case "dis":
+					grid.printGrid();
 					break;
 					
 				case "as":
+					grid.fillCell(rowNum(), colNum());
 					break;
 					
 				case "f":
+					grid.fillArea(fromRowRange(),fromColRange(),toRowRange(),toColRange());
 					break;
 					
 				case "n":
+					grid.fillNumbers(fromRowRange(),fromColRange(),toRowRange(),toColRange());
 					break;
 					
 				case "a":
+					grid.addCells(firstRow(), firstCol(), secondRow(), secondCol(), destRow(), destCol());
 					break;
 					
 				case "s":
+					grid.subCells(firstRow(), firstCol(), secondRow(), secondCol(), destRow(), destCol());
 					break;
 					
 				case "m":
+					grid.multCells(firstRow(), firstCol(), secondRow(), secondCol(), destRow(), destCol());
 					break;
 					
 				case "d":
+					grid.divideCells(firstRow(), firstCol(), secondRow(), secondCol(), destRow(), destCol());
 					break;
 					
 				case "ar":
+					grid.addRows(firstRow(), secondRow(), destRow());
 					break;
 					
 				case "sr":
+					grid.subRows(firstRow(), secondRow(), destRow());
 					break;
 					
 				case "mr":
+					grid.multRows(firstRow(), secondRow(), destRow());
 					break;
 					
 				case "dr":
+					grid.divideRows(firstRow(), secondRow(), destRow());
 					break;
 
 				case "ac":
+					grid.addCols(firstCol(), secondCol(), destCol());
 					break;
 					
 				case "sc":
+					grid.subCols(firstCol(), secondCol(), destCol());
 					break;
 					
 				case "mc":
+					grid.multCols(firstCol(), secondCol(), destCol());
 					break;
 					
 				case "dc":
+					grid.divideCols(firstCol(), secondCol(), destCol());
 					break;
 					
 				case "ir":
+					grid.addRow(atRow());
 					break;
 					
 				case "ic":
+					grid.addColumn(atCol());
 					break;
 					
 				case "delr":
+					grid.deleteRow(rowNum());
 					break;
 					
 				case "delc":
+					grid.deleteColumn(colNum());
 					break;
 					
 				case "q":
@@ -89,9 +109,6 @@ public class Spreadsheet
 			}
 			
 		}
-		
-		
-		
 
 	}
 	
@@ -115,5 +132,88 @@ public class Spreadsheet
 	{
 		System.out.print("->  ");
 	}
-
+	
+	public static int fromRowRange()
+	{
+		System.out.print("From Row: ");
+		return Integer.parseInt(keyboard.nextLine());
+	}
+	
+	public static int fromColRange()
+	{
+		System.out.print("From Column: ");
+		return Integer.parseInt(keyboard.nextLine());
+	}
+	
+	public static int toRowRange()
+	{
+		System.out.print("To Row: ");
+		return Integer.parseInt(keyboard.nextLine());
+	}
+	
+	public static int toColRange()
+	{
+		System.out.print("To Column: ");
+		return Integer.parseInt(keyboard.nextLine());
+	}
+	
+	public static int atRow()
+	{
+		System.out.print("At Row: ");
+		return Integer.parseInt(keyboard.nextLine());
+	}
+	
+	public static int atCol()
+	{
+		System.out.print("At Column: ");
+		return Integer.parseInt(keyboard.nextLine());
+	}
+	
+	public static int colNum()
+	{
+		System.out.print("Column Number: ");
+		return Integer.parseInt(keyboard.nextLine());
+	}
+	
+	public static int rowNum()
+	{
+		System.out.print("Row Number: ");
+		return Integer.parseInt(keyboard.nextLine());
+	}
+	
+	public static int firstRow()
+	{
+		System.out.print("first node row: ");
+		return Integer.parseInt(keyboard.nextLine());
+	}
+	
+	public static int secondRow()
+	{
+		System.out.print("second node row: ");
+		return Integer.parseInt(keyboard.nextLine());
+	}
+	
+	public static int destRow()
+	{
+		System.out.print("destination node row: ");
+		return Integer.parseInt(keyboard.nextLine());
+	}
+	
+	public static int firstCol()
+	{
+		System.out.print("first node column: ");
+		return Integer.parseInt(keyboard.nextLine());
+	}
+	
+	public static int secondCol()
+	{
+		System.out.print("second node column: ");
+		return Integer.parseInt(keyboard.nextLine());
+	}
+	
+	public static int destCol()
+	{
+		System.out.print("destination node column: ");
+		return Integer.parseInt(keyboard.nextLine());
+	}
 }
